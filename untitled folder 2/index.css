@@ -1,0 +1,192 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.container1{
+  overflow:hidden;
+  width:261.25px;
+  height: 251.25px;
+  padding: 6.39px;
+
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+}
+
+.number{
+  background-color:rgb(51,51,51);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 28.35px;
+  padding-right: 49.35px;
+  font-size: 35px;
+  border-radius: 50%;
+}
+
+.container2{
+  overflow:hidden;
+  width:261.25px;
+  height: 76.625px;
+  padding: 6.39px;
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+}
+
+.upsidesymbols{
+  background-color:rgb(166,166,166);
+  color:black;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 28.35px;
+  padding-right: 49.35px;
+  font-size: 35px;
+  border-radius: 50%;
+}
+
+.upsidesymbols1{
+  background-color:rgb(166,166,166);
+  color:black;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 15.35px;
+  padding-right: 62.35px;
+  font-size: 35px;
+  border-radius: 50%;
+}
+
+.upsidesymbols2{
+  background-color:rgb(166,166,166);
+  color:black;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 22.35px;
+  padding-right: 55.35px;
+  font-size: 35px;
+  border-radius: 50%;
+}
+
+.container3{
+  overflow:hidden;
+  width:261.25px;
+  height: 76.625px;
+  padding: 6.39px;
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+  clear: left;
+}
+
+.bottomnumber{
+  background-color:rgb(51,51,51);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 28.35px;
+  padding-right: 49.35px;
+  font-size: 35px;
+  border-radius: 50%;
+}
+
+.bottomnumber1{
+  background-color:rgb(51,51,51);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 28.35px;
+  padding-right: 133.35px;
+  font-size: 35px;
+  border-radius: 43%;
+}
+
+.container4{
+  width:71.3px;
+  height: 430.5px;
+  padding: 6.39px;
+  margin-left: 0px;
+  float: left;
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+  overflow: hidden;
+}
+
+.symbol{
+  background-color:rgb(253,148,38);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 5px;
+  padding-top: 18.35px;
+  padding-bottom: 59.35px;
+  padding-left: 30.35px;
+  padding-right: 47.35px;
+  font-size: 35px;
+  border-radius: 50%;
+}
+
+.container5{
+  background-color: black;
+  height: 150px;
+  width: 357.55px;
+}
+
+.a0{
+  color:white;
+  width: 0px;
+  height: 0px;
+  padding-top: 60px;
+  margin-top: 0px;
+  margin-left: 300px;
+  font-size: 80px;
+}
+
+.bigcontainer{
+  float: left;
+}
+

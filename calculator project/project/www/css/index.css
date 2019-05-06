@@ -1,0 +1,201 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+ /*
+04/01/19
+Leo Li
+I have neither given nor received any unauthorized aid.
+Description: This is the calculator layout project. I programmed this based on pixels, and now this version doesn't fit the page very well. I will probably do a v2 with percentages, but now I haven't yet figured that out.;
+
+
+*/
+.container1{
+  overflow:hidden;
+  width:709.91px;
+  height: 682.74px;
+  padding: 17.36px;
+
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+}
+
+.number{
+  background-color:rgb(51,51,51);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 49.86px;
+  padding-bottom: 161.27px;
+  padding-left: 77.03px;
+  padding-right: 134.10px;
+  font-size: 95px;
+  border-radius: 50%;
+}
+
+.container2{
+  overflow:hidden;
+  width:709.918px;
+  height: 208.22px;
+  padding: 17.36px;
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+}
+
+.upsidesymbols{
+  background-color:rgb(166,166,166);
+  color:black;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 49.86px;
+  padding-bottom: 161.277px;
+  padding-left: 77.03px;
+  padding-right: 134.10px;
+  font-size: 95px;
+  border-radius: 50%;
+}
+
+.upsidesymbols1{
+  background-color:rgb(166,166,166);
+  color:black;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 49.86px;
+  padding-bottom: 161.277px;
+  padding-left: 41.71px;
+  padding-right: 169.429px;
+  font-size: 95px;
+  border-radius: 50%;
+}
+
+.upsidesymbols2{
+  background-color:rgb(166,166,166);
+  color:black;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 49.86px;
+  padding-bottom: 161.277px;
+  padding-left: 60.733px;
+  padding-right: 150.40px;
+  font-size: 95px;
+  border-radius: 50%;
+}
+
+.container3{
+  overflow:hidden;
+  width:732.25px;
+  height: 236.625px;
+  padding: 6.39px;
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+  clear: left;
+}
+
+.bottomnumber{
+  background-color:rgb(51,51,51);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 49.86px;
+  padding-bottom: 161.277px;
+  padding-left: 60.733px;
+  padding-right: 150.40px;
+  font-size: 95px;
+  border-radius: 50%;
+}
+
+.bottomnumber1{
+  background-color:rgb(51,51,51);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin: 1.7%;
+  float: left;
+  padding-top: 49.86px;
+  padding-bottom: 161.27px;
+  padding-left: 77.03px;
+  padding-right: 362.36px;
+  font-size: 95px;
+  border-radius: 43%;
+}
+
+.container4{
+  width:180.3px;
+  height: 1169.83px;
+  padding:17.36px;
+  margin-left: 0px;
+  float: left;
+  /*margin-top: 46.4%;
+  margin-bottom:15%;*/
+  background-color: black;
+  font-family: Helvetica;
+  overflow: hidden;
+}
+
+.symbol{
+  background-color:rgb(253,148,38);
+  color:white;
+  width: 0px;
+  height: 0px;
+  margin-top: 21.73px;
+  margin-bottom: 21.73px;
+  margin-right: 13.58px;
+  padding-top: 49.86px;
+  padding-bottom: 161.27px;
+  padding-left: 82.47px;
+  padding-right: 128.66px;
+  font-size: 95px;
+  border-radius: 50%;
+}
+
+.container5{
+  background-color: black;
+  height: 407.6px;
+  width: 963.60px;
+}
+
+.a0{
+  color:white;
+  width: 0px;
+  height: 0px;
+  padding-top: 163.04px;
+  margin-top: 0px;
+  margin-right: 20%;
+  font-size: 218px;
+}
+
+.bigcontainer{
+  float: left;
+}
+
