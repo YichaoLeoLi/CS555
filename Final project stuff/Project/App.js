@@ -6,63 +6,109 @@
  * @flow
  */
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, StatusBar } from 'react-native';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+
+
+
+
+const styles = StyleSheet.create({
+	ABlock: {
+	backgroundColor: 'rgb(161, 203, 133)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	},
+	BBlock: {
+	backgroundColor: 'rgb(172, 194, 239)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	position: 'absolute', 
+	right: 0,
+	top: 0,
+	},
+	CBlock: {
+	backgroundColor: 'rgb(245, 164, 157)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	},
+	DBlock: {
+	backgroundColor: 'rgb(255, 253, 116)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	position: 'absolute', 
+	right: 0,
+	top: 166.75,
+	},
+	EBlock: {
+	backgroundColor: 'rgb(203, 156, 252)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	},
+	FBlock: {
+	backgroundColor: 'rgb(219, 219, 219)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	position: 'absolute', 
+	right: 0,
+	top: 333.5,
+	},
+	GBlock: {
+	backgroundColor: 'rgb(174, 170, 170)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	},
+	Afterschool: {
+	backgroundColor: 'rgb(74, 137, 255)',
+	fontWeight: 'bold',
+	fontSize: 30,
+	color: 'black',
+	width: 187.5,
+	height: 166.75,
+	position: 'absolute', 
+	right: 0,
+	top: 500.25,
+	}
+
+
+});
+
+
 
 export default class App extends Component {
   render() {
     return (
-      <View>
-        <Calendar
-  // Initially visible month. Default = Date()
-  current={'2012-03-01'}
-  // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
-  minDate={'2012-05-10'}
-  // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-  maxDate={'2012-05-30'}
-  // Handler which gets executed on day press. Default = undefined
-  onDayPress={(day) => {console.log('selected day', day)}}
-  // Handler which gets executed on day long press. Default = undefined
-  onDayLongPress={(day) => {console.log('selected day', day)}}
-  // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-  monthFormat={'yyyy MM'}
-  // Handler which gets executed when visible month changes in calendar. Default = undefined
-  onMonthChange={(month) => {console.log('month changed', month)}}
-  // Hide month navigation arrows. Default = false
-  hideArrows={true}
-  // Replace default arrows with custom ones (direction can be 'left' or 'right')
-  renderArrow={(direction) => (<Arrow />)}
-  // Do not show days of other months in month page. Default = false
-  hideExtraDays={true}
-  // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
-  // day from another month that is visible in calendar page. Default = false
-  disableMonthChange={true}
-  // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
-  firstDay={1}
-  // Hide day names. Default = false
-  hideDayNames={true}
-  // Show week numbers to the left. Default = false
-  showWeekNumbers={true}
-  // Handler which gets executed when press arrow icon left. It receive a callback can go back month
-  onPressArrowLeft={substractMonth => substractMonth()}
-  // Handler which gets executed when press arrow icon left. It receive a callback can go next month
-  onPressArrowRight={addMonth => addMonth()}
-/>
-
-
-<CalendarList
-  // Callback which gets executed when visible months change in scroll view. Default = undefined
-  onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
-  // Max amount of months allowed to scroll to the past. Default = 50
-  pastScrollRange={50}
-  // Max amount of months allowed to scroll to the future. Default = 50
-  futureScrollRange={50}
-  // Enable or disable scrolling of calendar list
-  scrollEnabled={true}
-  // Enable or disable vertical scroll indicator. Default = false
-  showScrollIndicator={true}
-/>
-      </View>
+      <ScrollView>
+      <StatusBar hidden />
+      <Text style={styles.ABlock}> A Block</Text>
+      <Text style={styles.BBlock}> B Block</Text>
+      <Text style={styles.CBlock}> C Block</Text>
+      <Text style={styles.DBlock}> D Block</Text>
+      <Text style={styles.EBlock}> E Block</Text>
+      <Text style={styles.FBlock}> F Block</Text>
+      <Text style={styles.GBlock}> G Block</Text>
+      <Text style={styles.Afterschool}> Sport </Text>
+      </ScrollView>
     );
   }
 }
