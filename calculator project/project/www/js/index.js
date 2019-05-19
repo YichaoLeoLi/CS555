@@ -145,7 +145,7 @@ if ($(this).text()=='='){
 
 //this function executes when the "AC" button is clicked. this basically resets all the variables in the program. I haven't really done any "C" operations and I don't really know what's the difference between "C" and "AC"
 
-$(".upsidesymbols1").click(function(){
+$(".difference").click(function(){
     result = [];
     console.log(result);
     result1 = 0;
