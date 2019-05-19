@@ -30,10 +30,11 @@ $(document).ready(function(){
 //beginning of jquery
 
 var result = []; // this array stores the numbers that get entered into. For example, if I press '9' and then '5', the array is going to have [9, 5]
-var result1; // this variable combines all the elements in the result and forms a number used for calculation. For example, if the array ois [9, 5], then is variable is going to be 95 as a number.
+var result1; // this variable combines all the elements in the result and forms a number used for calculation. For example, if the array is [9, 5], then is variable is going to be 95 as a number.
 var result2 = []; //the first element of this array is the calculated result. 
 var symbol_clicked = false;//a boolean indicating whether a symbol has been clicked before or not
 var number_clicked = false;// a boolean indicating whether a number has been clicked before or not
+var percentage_clicked = false;//a boolean indicating whether the % sign has been cliked before or not
 var operation = [];//this array stores the operation that's entered, and it can store at most two variables.
 
 //this function executes when a number is clicked
@@ -80,6 +81,17 @@ $(".number").click(function(){
     }
     number_clicked = true;
     symbol_clicked = false;
+    if (percentage_clicked == true && symbol_clicked == true){
+        result = [];
+        console.log(result);
+        result1 = 0;
+        result2 = [];
+        symbol_clicked = false;
+        number_clicked = false;
+        percentage_clicked = false;
+        operation = [];
+        $(".a0").text(0);
+    }
 })
 
 $(".symbol").click(function(){
@@ -88,6 +100,7 @@ $(".symbol").click(function(){
     if(operation.length>2){
         operation.shift();
     }
+    percentage_clicked = false;
 
 //when something other than the equal sign is pressed, check if the length of the operation array is greater than one, meaning that an operation has been done before, and if there is, do the previous calculation; if there isn't, change the value of the symbol_clicked boolean.
     if (operation.length>1 & $(this).text()!='='){
@@ -152,9 +165,18 @@ $(".difference").click(function(){
     result2 = [];
     symbol_clicked = false;
     number_clicked = false;
+    percentage_clicked = false;
     operation = [];
     $(".a0").text(0);
 })
+
+$(".difference2").click(function(){
+        result1=result1/100
+        $(".a0").text(result1);
+        percentage_clicked = true;
+})
+
+
 
 
 //I basically copied the whole thing for numbers because I don't know how to select multiple things in html at once. This is only for number 0 and I did so because I put 0 in a different class as other numbers because then it would be easier to do css.
