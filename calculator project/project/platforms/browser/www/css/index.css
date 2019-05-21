@@ -25,6 +25,13 @@ Description: This is the calculator layout project. I programmed this based on p
 
 
 */
+
+
+body{
+  background-color: black;
+}
+
+
 .container1{
   overflow:hidden;
   width:709.91px;
@@ -34,7 +41,7 @@ Description: This is the calculator layout project. I programmed this based on p
   /*margin-top: 46.4%;
   margin-bottom:15%;*/
   background-color: black;
-  font-family: Helvetica;
+  font-family: "Helvetica", Helvetica, sans-serif;
 }
 
 .number{
@@ -60,7 +67,7 @@ Description: This is the calculator layout project. I programmed this based on p
   /*margin-top: 46.4%;
   margin-bottom:15%;*/
   background-color: black;
-  font-family: Helvetica;
+  font-family: "Helvetica", Helvetica, sans-serif;
 }
 
 .upsidesymbols{
@@ -72,40 +79,25 @@ Description: This is the calculator layout project. I programmed this based on p
   float: left;
   padding-top: 49.86px;
   padding-bottom: 161.277px;
-  padding-left: 77.03px;
-  padding-right: 134.10px;
   font-size: 95px;
   border-radius: 50%;
 }
 
-.upsidesymbols1{
-  background-color:rgb(166,166,166);
-  color:black;
-  width: 0px;
-  height: 0px;
-  margin: 1.7%;
-  float: left;
-  padding-top: 49.86px;
-  padding-bottom: 161.277px;
-  padding-left: 41.71px;
+.difference1{
+padding-left: 57.03px;
+padding-right: 154.10px;
+font-size: 70px;
+font-family: "Cambria Math", sans-serif;
+}
+
+.difference{
+padding-left: 41.71px;
   padding-right: 169.429px;
-  font-size: 95px;
-  border-radius: 50%;
 }
 
-.upsidesymbols2{
-  background-color:rgb(166,166,166);
-  color:black;
-  width: 0px;
-  height: 0px;
-  margin: 1.7%;
-  float: left;
-  padding-top: 49.86px;
-  padding-bottom: 161.277px;
+.difference2{
   padding-left: 60.733px;
   padding-right: 150.40px;
-  font-size: 95px;
-  border-radius: 50%;
 }
 
 .container3{
@@ -116,7 +108,7 @@ Description: This is the calculator layout project. I programmed this based on p
   /*margin-top: 46.4%;
   margin-bottom:15%;*/
   background-color: black;
-  font-family: Helvetica;
+  font-family: "Helvetica", Helvetica, sans-serif;
   clear: left;
 }
 
@@ -125,15 +117,19 @@ Description: This is the calculator layout project. I programmed this based on p
   color:white;
   width: 0px;
   height: 0px;
-  margin: 1.7%;
+  margin-top:2%;
+  margin-bottom: 2%;
+  margin-left: 3%;
   float: left;
   padding-top: 49.86px;
   padding-bottom: 161.277px;
-  padding-left: 60.733px;
-  padding-right: 150.40px;
+  padding-left: 97.733px;
+  padding-right: 113.40px;
   font-size: 95px;
   border-radius: 50%;
 }
+
+
 
 .bottomnumber1{
   background-color:rgb(51,51,51);
@@ -147,19 +143,19 @@ Description: This is the calculator layout project. I programmed this based on p
   padding-left: 77.03px;
   padding-right: 362.36px;
   font-size: 95px;
-  border-radius: 43%;
+  border-radius: 100px;
 }
 
 .container4{
-  width:180.3px;
+  width:200.3px;
   height: 1169.83px;
-  padding:17.36px;
-  margin-left: 0px;
+  padding:13.36px;
+  margin-left: -15px;
   float: left;
   /*margin-top: 46.4%;
   margin-bottom:15%;*/
   background-color: black;
-  font-family: Helvetica;
+  font-family: "Helvetica", Helvetica, sans-serif;
   overflow: hidden;
 }
 
@@ -168,8 +164,8 @@ Description: This is the calculator layout project. I programmed this based on p
   color:white;
   width: 0px;
   height: 0px;
-  margin-top: 21.73px;
-  margin-bottom: 21.73px;
+  margin-top: 23.73px;
+  margin-bottom: 23.73px;
   margin-right: 13.58px;
   padding-top: 49.86px;
   padding-bottom: 161.27px;
@@ -191,8 +187,8 @@ Description: This is the calculator layout project. I programmed this based on p
   height: 0px;
   padding-top: 163.04px;
   margin-top: 0px;
-  margin-left: 815.21px;
-  font-size: 218px;
+  margin-left: 50px;
+  font-size: 25vw;
 }
 
 .bigcontainer{

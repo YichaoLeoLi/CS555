@@ -7,9 +7,8 @@
  */
 import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet, StatusBar, Button,TextInput } from 'react-native';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
-
-
+import {Calendar, CalendarList, Agenda} from "react-native-calendars";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
 const styles = StyleSheet.create({
@@ -96,8 +95,54 @@ const styles = StyleSheet.create({
 });
 
 
+class HomeScreen extends Component{
+	render(){
+		return(
+		<View>
+		<Button
+		onPress={() => this.props.navigation.navigate('CalendarPage')}
+		title="View the calendar"
+		color="black"
+		/>
+		<Button
+		onPress={() => this.props.navigation.navigate('Details')}
+		title="Enter your schedule"
+		color="black"
+		/>
+		</View>
+			);
+	}
+}
 
-export default class App extends Component {
+
+class CalendarScreen extends Component{
+	render(){
+		return(
+		<View>
+			
+<CalendarList
+  // Callback which gets executed when visible months change in scroll view. Default = undefined
+  onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
+  // Max amount of months allowed to scroll to the past. Default = 50
+  pastScrollRange={50}
+  // Max amount of months allowed to scroll to the future. Default = 50
+  futureScrollRange={50}
+  // Enable or disable scrolling of calendar list
+  scrollEnabled={true}
+  // Enable or disable vertical scroll indicator. Default = false
+  showScrollIndicator={true}
+/>
+
+
+		</View>
+			);
+
+	}
+}
+
+
+
+class EnteringScreen extends Component {
    constructor(props) {
     super(props);
     this.state = { text: 'Useless Placeholder' };
@@ -152,4 +197,19 @@ export default class App extends Component {
     );
   }
 }
+
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    CalendarPage: CalendarScreen,
+    Details: EnteringScreen
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+
+export default createAppContainer(AppNavigator);
 
