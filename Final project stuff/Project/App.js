@@ -244,9 +244,64 @@ class CalendarScreen extends Component{
 class EnteringScreen extends Component {
    constructor(props) {
     super(props);
-    this.state={text: ''};
+    this.state={text:''};
   }
 
+  onFocusChangeA = () => {
+    let A = this.state.textA;
+    classes[0]=(A);
+    console.log(A);
+    console.log(classes);
+  }
+
+  onFocusChangeB = () => {
+    let B = this.state.textB;
+    classes[1]=(B);
+    console.log(B);
+    console.log(classes);
+  }
+
+  onFocusChangeC = () => {
+    let C = this.state.textC;
+    classes[2]=(C);
+    console.log(C);
+    console.log(classes);
+  }
+
+  onFocusChangeD = () => {
+    let D = this.state.textD;
+    classes[3]=(D);
+    console.log(D);
+    console.log(classes);
+  }
+
+  onFocusChangeE = () => {
+    let E = this.state.textE;
+    classes[4]=(E);
+    console.log(E);
+    console.log(classes);
+  }
+
+  onFocusChangeF = () => {
+    let F = this.state.textF;
+    classes[5]=(F);
+    console.log(F);
+    console.log(classes);
+  }
+
+  onFocusChangeG = () => {
+    let G = this.state.textG;
+    classes[6]=(G);
+    console.log(G);
+    console.log(classes);
+  }
+
+  onFocusChangeAfterSchool = () => {
+    let AfterSchool = this.state.textH;
+    classes[7]=(AfterSchool);
+    console.log(AfterSchool);
+    console.log(classes);
+  }
 
   render() {
     return (
@@ -254,44 +309,68 @@ class EnteringScreen extends Component {
       <StatusBar hidden />
       <Text style={styles.ABlock}> A Block</Text>
       <TextInput
+        ref ={(el)=>{this.textA=el;}}
         style={{height: 40, width: 187.5, borderWidth: 1, borderColor: 'rgb(161, 203, 133)' ,backgroundColor: "rgb(161, 203, 133)"}}
-        onChangeText={(text) => this.setState({text})
-       }
+        onChangeText={(textA) => this.setState({textA})}
+        value = {this.state.textA}
+        onEndEditing={this.onFocusChangeA}
       />
+
       <Text style={styles.BBlock}> B Block</Text>
       <TextInput
         style={{height: 40, width: 187.5, left: 187.5, top:-40, borderWidth: 1, borderColor: 'rgb(172, 194, 239)' ,backgroundColor: "rgb(172, 194, 239)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textB) => this.setState({textB})}
+        ref ={(el)=>{this.textB=el;}}
+        value = {this.state.textB}
+        onEndEditing={this.onFocusChangeB}
       />
       <Text style={styles.CBlock}> C Block</Text>
       <TextInput
         style={{height: 40, width: 187.5, top:-40, borderWidth: 1, borderColor: 'rgb(245, 164, 157)' ,backgroundColor: "rgb(245, 164, 156)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textC) => this.setState({textC})}
+        ref ={(el)=>{this.textC=el;}}
+        value = {this.state.textCtextC}
+        onEndEditing={this.onFocusChangeC}
       />
       <Text style={styles.DBlock}> D Block</Text>
       <TextInput
         style={{height: 40, width: 187.5, left: 187.5, top:-80, borderWidth: 1, borderColor: 'rgb(255, 253, 116)' ,backgroundColor: "rgb(255, 253, 116)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textD) => this.setState({textD})}
+        ref ={(el)=>{this.textD=el;}}
+        value = {this.state.textD}
+        onEndEditing={this.onFocusChangeD}
       />
       <Text style={styles.EBlock}> E Block</Text>
       <TextInput
         style={{height: 40, width: 187.5, top:-80,  borderWidth: 1, borderColor: 'rgb(203, 156, 252)' ,backgroundColor: "rgb(203, 156, 252)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textE) => this.setState({textE})}
+        ref ={(el)=>{this.textE=el;}}
+        value = {this.state.textE}
+        onEndEditing={this.onFocusChangeE}
       />
       <Text style={styles.FBlock}> F Block</Text>
       <TextInput
         style={{height: 40, width: 187.5, left: 187.5, top:-120, borderWidth: 1, borderColor: 'rgb(219, 219, 219)' ,backgroundColor: "rgb(219, 219, 219)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textF) => this.setState({textF})}
+        ref ={(el)=>{this.textF=el;}}
+        value = {this.state.textF}
+        onEndEditing={this.onFocusChangeF}
       />
       <Text style={styles.GBlock}> G Block</Text>
       <TextInput
         style={{height: 40, width: 187.5, top:-120, borderWidth: 1, borderColor: 'rgb(174, 170, 170)' ,backgroundColor: "rgb(174, 170, 170)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textG) => this.setState({textG})}
+        ref ={(el)=>{this.textG=el;}}
+        value = {this.state.textG}
+        onEndEditing={this.onFocusChangeG}
       />
       <Text style={styles.Afterschool}> Sport </Text>
       <TextInput
         style={{height: 40, width: 187.5, left: 187.5, top:-160, borderWidth: 1, borderColor: 'rgb(74, 137, 255)' ,backgroundColor: "rgb(74, 137, 255)"}}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(textH) => this.setState({textH})}
+        ref ={(el)=>{this.textH=el;}}
+        value = {this.state.textH}
+        onEndEditing={this.onFocusChangeAfterSchool}
       />
       </ScrollView>
     );
