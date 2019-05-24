@@ -5,13 +5,61 @@
  * @format
  * @flow
  */
+
+//May 23 2019
+//choate calendar
+//Description: This is a calendar built using react native, and it is a calendar specified for choate students. After the student enters the schedule, the app automatically adds the schedule to the calendar for the year 2018-2019. 
+//Honor code: On my honor, I have neither given nor received any unauthorized aid.
+/*Sources: https://facebook.github.io/react-native/
+https://github.com/wix/react-native-calendars
+https://github.com/react-native-community/react-native-async-storage
+https://facebook.github.io/react-native/docs/asyncstorage
+*/
+
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, StatusBar, Button,TextInput, TouchableOpacity,Image } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, StatusBar, Button,TextInput, TouchableOpacity} from 'react-native';
 import {Calendar, CalendarList, Agenda} from "react-native-calendars";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 var classes = [];
+
+    _retrieveData = async () => {
+    try{
+      console.log('executed');
+      classes[0] = await AsyncStorage.getItem('A_Block');
+      classes[1] = await AsyncStorage.getItem('B_Block');
+      classes[2] = await AsyncStorage.getItem('C_Block');
+      classes[3] = await AsyncStorage.getItem('D_Block');
+      classes[4] = await AsyncStorage.getItem('E_Block');
+      classes[5] = await AsyncStorage.getItem('F_Block');
+      classes[6] = await AsyncStorage.getItem('G_Block');
+      classes[7] = await AsyncStorage.getItem('After_School');
+    } catch (error){
+      //Error retrieving data
+      alert(error);
+    }
+  }
+
+  _storeData = async() =>{
+        try{
+          console.log('executed');
+          await AsyncStorage.setItem('A_Block', classes[0]);
+          await AsyncStorage.setItem('B_Block', classes[1]);
+          await AsyncStorage.setItem('C_Block', classes[2]);
+          await AsyncStorage.setItem('D_Block', classes[3]);
+          await AsyncStorage.setItem('E_Block', classes[4]);
+          await AsyncStorage.setItem('F_Block', classes[5]);
+          await AsyncStorage.setItem('G_Block', classes[6]);
+          await AsyncStorage.setItem('After_School', classes[7]);
+        } catch(error){
+          //Error saving data
+          alert(error);
+        }
+      }
+
+
 
 
 const styles = StyleSheet.create({
@@ -118,6 +166,19 @@ const styles = StyleSheet.create({
   fontSize: 30,
   fontWeight: 'bold',
   color: 'rgb(253,183,54)'
+  },
+    item: {
+    backgroundColor: 'white',
+    flex: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginRight: 10,
+    marginTop: 17
+  },
+  emptyDate: {
+    height: 15,
+    flex:1,
+    paddingTop: 30
   }
 });
 
@@ -141,102 +202,223 @@ class HomeScreen extends Component{
 		>
     <Text style = {styles.white}> Enter your schedule </Text>
     </TouchableOpacity>
+    <TouchableOpacity
+    onPress={_storeData}
+    style = {styles.Buttons}
+    >
+    <Text style = {styles.white}> Save Data </Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+    onPress={_retrieveData}
+    style = {styles.Buttons}
+    >
+    <Text style = {styles.white}> Retreive Data </Text>
+    </TouchableOpacity>
+
 		</View>
 			);
 	}
+
 }
 
 
 class CalendarScreen extends Component{
-	render(){
-		return(
-		<View>
-		<StatusBar hidden />
-    <CalendarList
-  horizontal={true}
-  pagingEnabled={true}
-  // Callback which gets executed when visible months change in scroll view. Default = undefined
-  onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
-  // Max amount of months allowed to scroll to the past. Default = 50
-  pastScrollRange={50}
-  // Max amount of months allowed to scroll to the future. Default = 50
-  futureScrollRange={50}
-  // Enable or disable scrolling of calendar list
-  scrollEnabled={true}
-  // Enable or disable vertical scroll indicator. Default = false
-  showScrollIndicator={true}
-/>
+	constructor(props) {
+    super(props);
+    this.state = {
+      items: {}
+    };
+  }
 
+  render() {
+    return (
+      <Agenda
+        items={this.state.items}
+        loadItemsForMonth={this.loadItems.bind(this)}
+        selected={'2018-09-10'}
+        minDate={'2018-09-10'}
+        maxDate={'2019-05-23'}
+        renderItem={this.renderItem.bind(this)}
+        renderEmptyDate={this.renderEmptyDate.bind(this)}
+        rowHasChanged={this.rowHasChanged.bind(this)}
+        // markingType={'period'}
+        // markedDates={{
+        //    '2017-05-08': {textColor: '#666'},
+        //    '2017-05-09': {textColor: '#666'},
+        //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
+        //    '2017-05-21': {startingDay: true, color: 'blue'},
+        //    '2017-05-22': {endingDay: true, color: 'gray'},
+        //    '2017-05-24': {startingDay: true, color: 'gray'},
+        //    '2017-05-25': {color: 'gray'},
+        //    '2017-05-26': {endingDay: true, color: 'gray'}}}
+         // monthFormat={'yyyy'}
+         // theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
+        //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+      />
+    );
+  }
 
-<Agenda
-  // the list of items that have to be displayed in agenda. If you want to render item as empty date
-  // the value of date key kas to be an empty array []. If there exists no value for date key it is
-  // considered that the date in question is not yet loaded
-  items={{
-    '2019-05-22': [{text: 'item 1 - any js object'}],
-    '2019-05-23': [{text: 'item 2 - any js object'}],
-    '2019-05-24': [],
-    '2019-05-25': [{text: 'item 3 - any js object'},{text: 'any js object'}]
-  }}
-  // callback that gets called when items for a certain month should be loaded (month became visible)
-  loadItemsForMonth={(month) => {console.log('trigger items loading')}}
-  // callback that fires when the calendar is opened or closed
-  onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
-  // callback that gets called on day press
-  onDayPress={(day)=>{console.log('day pressed')}}
-  // callback that gets called when day changes while scrolling agenda list
-  onDayChange={(day)=>{console.log('day changed')}}
-  // initially selected day
-  selected={'2019-05-16'}
-  // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
-  minDate={'2019-05-10'}
-  // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-  maxDate={'2019-05-30'}
-  // Max amount of months allowed to scroll to the past. Default = 50
-  pastScrollRange={50}
-  // Max amount of months allowed to scroll to the future. Default = 50
-  futureScrollRange={50}
-  // specify how each item should be rendered in agenda
-  renderItem={(item, firstItemInDay) => {return (<View />);}}
-  // specify how each date should be rendered. day can be undefined if the item is not first in that day.
-  renderDay={(day, item) => {return (<View />);}}
-  // specify how empty date content with no items should be rendered
-  renderEmptyDate={() => {return (<View />);}}
-  // specify how agenda knob should look like
-  renderKnob={() => {return (<View />);}}
-  // specify what should be rendered instead of ActivityIndicator
-  renderEmptyData = {() => {return (<View />);}}
-  // specify your item comparison function for increased performance
-  rowHasChanged={(r1, r2) => {return r1.text !== r2.text}}
-  // Hide knob button. Default = false
-  hideKnob={true}
-  // By default, agenda dates are marked if they have at least one item, but you can override this if needed
-  markedDates={{
-    '2019-05-16': {selected: true, marked: true},
-    '2019-05-17': {marked: true},
-    '2019-05-18': {disabled: true}
-  }}
-  // If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the refreshing prop correctly.
-  onRefresh={() => console.log('refreshing...')}
-  // Set this true while waiting for new data from a refresh
-  refreshing={false}
-  // Add a custom RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView.
-  refreshControl={null}
-  // agenda theme
-  theme={{
-    agendaDayTextColor: 'yellow',
-    agendaDayNumColor: 'green',
-    agendaTodayColor: 'red',
-    agendaKnobColor: 'blue'
-  }}
-  // agenda container style
-  style={{}}
-/>
+  loadItems(day) {
+    setTimeout(() => {
+      for (let i = 0; i < 260; i++) {
+        const time = day.timestamp + i * 24 * 60 * 60 * 1000;
+        const strTime = this.timeToString(time);
+        if (!this.state.items[strTime]) {
+          this.state.items[strTime] = [];
+          if ((i%7)==0){
+          this.state.items[strTime].push({
+            name: classes[0] +' 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[1] +' 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[2] +' 11:00-12:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[3] +' 12:50-2:00',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[4] +' 2:10-3:20',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[7] +' 4:00-6:00',
+            height: 50,
+          })
+          }
+          if ((i%7)==1){
+          this.state.items[strTime].push({
+            name: classes[5] +' 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'School Meeting 10:00-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[6] +' 11:00-12:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[0] +' 12:50-2:00',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[1] +' 2:10-3:20',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[7] +' 4:00-6:00',
+            height: 50,
+          })
+          }
+          if ((i%7)==2){
+          this.state.items[strTime].push({
+            name: classes[4] +' 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'form/advisor meeting 9:40-10:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[2] +' 10:20-11:30',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[3] +' 11:40-12:50',
+            height: 50,
+          })
+          }
+          if ((i%7)==3){
+          this.state.items[strTime].push({
+            name: 'Sleep-in 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[6] +' 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[5] +' 11:00-12:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[1] +' 12:50-2:00',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[0] +' 2:10-3:20',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[7] +' 4:00-6:00',
+            height: 50,
+          })
+          }
+          if ((i%7)==4){
+          this.state.items[strTime].push({
+            name: classes[3] +' 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[2] +' 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[4] +' 11:00-12:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[5] +' 12:50-2:00',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[6] +' 2:10-3:20',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: classes[7] +' 4:00-6:00',
+            height: 50,
+          })
+        }
+        }
+      }
+      //console.log(this.state.items);
+      const newItems = {};
+      Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
+      this.setState({
+        items: newItems
+      });
+    }, 1000);
+    // console.log(`Load Items for ${day.year}-${day.month}`);
+  }
 
-		</View>
-			);
+  renderItem(item) {
+    return (
+      <View style={[styles.item, {height: item.height}]}><Text>{item.name}</Text></View>
+    );
+  }
 
-	}
+  renderEmptyDate() {
+    return (
+      <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
+    );
+  }
+
+  rowHasChanged(r1, r2) {
+    return r1.name !== r2.name;
+  }
+
+  timeToString(time) {
+    const date = new Date(time);
+    return date.toISOString().split('T')[0];
+  }
 }
 
 
@@ -373,8 +555,16 @@ class EnteringScreen extends Component {
         onEndEditing={this.onFocusChangeAfterSchool}
       />
       </ScrollView>
+
+      
+
     );
   }
+
+
+
+
+
 }
 
 

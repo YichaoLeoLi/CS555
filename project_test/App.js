@@ -2,9 +2,35 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  StyleSheet
+  StyleSheet,
+  AsyncStorage
 } from 'react-native';
 import {Agenda} from 'react-native-calendars';
+
+
+
+// create a function that saves your data asyncronously
+    
+    retrieveData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('name');
+            alert(a);
+            if (value !== null) {
+                // Our data is fetched successfully
+                console.log(value);
+            }
+        } catch (error) {
+            // Error retrieving data
+            alert(error);
+        }
+    }
+    
+
+    storeData = async () =>{
+      await AsyncStorage.setItem('name', John)
+    }
+
+
 
 export default class AgendaScreen extends Component {
   constructor(props) {
@@ -14,12 +40,13 @@ export default class AgendaScreen extends Component {
     };
   }
 
+
   render() {
     return (
       <Agenda
         items={this.state.items}
         loadItemsForMonth={this.loadItems.bind(this)}
-        selected={'2017-05-16'}
+        selected={'2017-05-15'}
         renderItem={this.renderItem.bind(this)}
         renderEmptyDate={this.renderEmptyDate.bind(this)}
         rowHasChanged={this.rowHasChanged.bind(this)}
@@ -41,18 +68,102 @@ export default class AgendaScreen extends Component {
   }
 
   loadItems(day) {
+    // fetch the data back asyncronously
+    // create a function that saves your data asyncronously
+    
+    retrieveData = async () => {
+        try {
+            const value = await AsyncStorage.getItem('name');
+            alert(a);
+            if (value !== null) {
+                // Our data is fetched successfully
+                console.log(value);
+            }
+        } catch (error) {
+            // Error retrieving data
+            alert(error);
+        }
+    }
+    storeData();
     setTimeout(() => {
-      for (let i = -15; i < 85; i++) {
+      for (let i = 0; i < 14; i++) {
         const time = day.timestamp + i * 24 * 60 * 60 * 1000;
         const strTime = this.timeToString(time);
         if (!this.state.items[strTime]) {
           this.state.items[strTime] = [];
-          const numItems = Math.floor(Math.random() * 5);
-          for (let j = 0; j < numItems; j++) {
-            this.state.items[strTime].push({
-              name: 'Item for ' + strTime,
-              height: Math.max(50, Math.floor(Math.random() * 150))
-            });
+          if ((i%7)==0){
+          this.state.items[strTime].push({
+            name: 'PH650HO 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'FR300 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'MA670HO 11:00-12:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'CS550HO 2:10-3:20',
+            height: 50,
+          })
+          }
+          if ((i%7)==1){
+          this.state.items[strTime].push({
+            name: 'EN300 11:30-12:40',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'PH650HO 12:50-2:00',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'FR300 2:10-3:20',
+            height: 50,
+          })
+          }
+          if ((i%7)==2){
+          this.state.items[strTime].push({
+            name: 'CS550HO 8:00-9:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'MA670HO 10:20-11:30',
+            height: 50,
+          })
+          }
+          if ((i%7)==3){
+          this.state.items[strTime].push({
+            name: 'EN300 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'FR300 12:50-2:00',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'PH650HO 2:10-3:20',
+            height: 50,
+          })
+          }
+          if ((i%7)==4){
+          this.state.items[strTime].push({
+            name: 'MA670HO 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'FR300 9:40-10:50',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'CS550HO 11:00-12:10',
+            height: 50,
+          })
+          this.state.items[strTime].push({
+            name: 'EN300 2:10-3:20',
+            height: 50,
+          })
           }
         }
       }
